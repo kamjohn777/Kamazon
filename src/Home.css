@@ -1,0 +1,28 @@
+/* .amazon-banner {
+    width: 100%;
+} */
+.home_container {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+}
+
+.amazon_banner_two {
+    z-index: -1;
+    width: 100%;
+    /* height: 350px; */
+    height: 400px;
+    margin-bottom: -150px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
+    /* mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.65)); */
+    /* The image mask is being applied to the image of in the body or the amazon banner i set the very last value of the rgba in the second rgba to 0.65 instead of 0 to get more visibility for the image */
+}
+
+.home_row {
+    display: flex;
+    z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
