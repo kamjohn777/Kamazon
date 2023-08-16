@@ -28,9 +28,14 @@ function Product({id, title, image, price, rating }) {
                     <strong>{price}</strong>
                 </p>
                 <div className="product_rating">
-                    {Array(rating).fill().map((_, i) => (
+                    {/* {Array(rating).fill().map((_, i) => (
                         <i>&#11088;</i>
-                    ))}
+                    ))} */}
+{Array(rating).fill().map((_, i) => (
+    <i key={i}>&#11088;</i>
+))
+}
+                    
                     {/* {Array.from({ length: rating }).map((_, i) => (
     <p key={i}>&#11088;</p>
 ))} */}
@@ -45,7 +50,9 @@ function Product({id, title, image, price, rating }) {
             
             {/* testing buttons */}
             {/* <button className="product_btns" onClick={addToCart}>Add to Cart</button> */}
-            <button class="custom-btn btn-12" onClick={addToCart}><span>Add</span><span>Add to Cart</span></button>
+            <button className="custom-btn btn-12" onClick={addToCart}><span>Click</span><span>Add to Cart</span></button>
+            {/* <button onClick={addToCart} class="custom-btn btn-5"><span>Read More</span></button> */}
+            {/* <button onClick={addToCart} class="custom-btn btn-7"><span>Read More</span></button> */}
         </div>
     )
 }

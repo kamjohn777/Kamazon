@@ -54,6 +54,7 @@ function Login() {
 
 
                <button type='submit' onClick={signIn} className='login_signIn_btn'>Sign In</button>
+               {/* <button type='submit' className="login_signIn_btn signIn_btn" onClick={signIn}><span>Click</span><span>Add to Cart</span></button> */}
             </form>
 
             <p>By signgin you agree to the terms and policies of Kamazon's use and sales cnoditions</p>

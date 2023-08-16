@@ -3,15 +3,16 @@ import './Payment.css'
 import { Check, Email } from "@mui/icons-material";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getCartTotal } from "./reducer";
-import axios from "axios";
-import instance from "./axios";
+import axios from "./axios";
+// import instance from "./axios";
 
 function Payment() {
     const [{ cart, user }, dispatch] = useStateValue();
+    const Navigate = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -21,25 +22,44 @@ function Payment() {
 
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [clientSecret, setClientSecret] = useState(true);
+    // const [clientSecret, setClientSecret] = useState(true);
+    const [clientSecret, setClientSecret] = useState(null);
+
 
     useEffect(() => {
 
         const getClientSecret = async () => {
-            const response = await axios({
-                method: 'post',
-                url: `/payments/create?total=${getCartTotal(cart) * 100}`
-            });
-            setClientSecret(response.data.clientSecret) 
+            // const response = await axios({
+            //     method: 'post',
+            //     url: `/payments/create?total=${getCartTotal(cart) * 100}`
+            // });
+            // setClientSecret(response.data.clientSecret) 
+            try {
+                const response = await axios({
+                    method: 'post',
+                    url: `/payments/create?total=${getCartTotal(cart) * 100}`
+                });
+                // console.log("Backend response:", response.data)
+                console.log("Backend response:", response)
+                setClientSecret(response.data.clientSecret);
+            } catch (error) {
+                console.error("Error getting client secret:", error);
+            }
         }
 
         getClientSecret();
-    }, [cart]);
+    }, [cart])
+
+    console.log('the secret is >>>>', clientSecret);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true);
         
+        if (!clientSecret) {
+            console.error("Client secret is not set yet")
+            return;
+        }
         // const payLoad = await stripe 
         const payLoad = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -117,9 +137,13 @@ function Payment() {
                              thousandSeparator={true}
                              prefix={"$"}
                                 />
-                                <button disabled={processing || disabled || succeeded}>
+                                {/* <button disabled={processing || disabled || succeeded}>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                                </button>
+                                </button> */}
+                                <button disabled={processing || disabled || succeeded || !clientSecret}>
+    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+</button>
+
                             </div>
                             {error && <div>{error}</div>}
                         </form>
