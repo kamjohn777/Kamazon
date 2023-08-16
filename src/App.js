@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 // import { BrowserRouter, Routes, Route, useLocation, useEffect, useState } from 'react-router-dom';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Checkout from './Checkout';
+import Orders from './Orders';
 import Login from './Login';
 import Payment from './Payment';
 import { auth } from './firebase';
@@ -99,6 +100,8 @@ useEffect(() => {
       <div className="App">
         {showHeader && <Header />}
         <Routes>
+          {/* <Route path='/secret' element={<Secret />} /> */}
+          <Route path='orders' element={<Orders />} />
           <Route path='/login' element={<Login />} />
           <Route path='/checkout' element={<Checkout />} />
           {/* <Elements stripe={promise}/> */}

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import '../src/Header.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 // import Icon from '@mui/material/Icon';
@@ -12,12 +12,18 @@ import { auth } from "./firebase";
 
 function Header() {
     const [{ cart, user}, dispatch] = useStateValue();
+    
 
     const handleAuthentication = () => {
         if (user) {
             auth.signOut();
         }
-    }
+        // if (user) {
+        //     auth.signOut().then(() => {
+        //         Navigate('/');  
+        //     });
+        }
+
 
     return (
         <div className="header">

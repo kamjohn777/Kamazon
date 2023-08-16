@@ -35,15 +35,20 @@ function Payment() {
             // });
             // setClientSecret(response.data.clientSecret) 
             try {
+                const cartTotal = getCartTotal(cart) * 100;
+
                 const response = await axios({
                     method: 'post',
-                    url: `/payments/create?total=${getCartTotal(cart) * 100}`
+                    // url: `/payments/create?total=${getCartTotal(cart) * 100}`
+                    url: `/payments/create?total=${cartTotal}`
                 });
                 // console.log("Backend response:", response.data)
                 console.log("Backend response:", response)
                 setClientSecret(response.data.clientSecret);
+                console.log(response.data.clientSecret);
             } catch (error) {
-                console.error("Error getting client secret:", error);
+                // console.error("Error getting client secret:", error);
+                console.error("Error getting client secret:", error.response ? error.response.data : error);
             }
         }
 
@@ -68,7 +73,11 @@ function Payment() {
         }).then(({ paymentIntent }) => {
             setSucceeded(true);
             setError(null);
-            setProcessing(false);
+            setProcessing(true);
+
+            dispatch({
+                type: 'EMPTY_CART'
+            })
 
             Navigate.replace('/orders')
         })
