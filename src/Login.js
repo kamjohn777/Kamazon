@@ -4,6 +4,7 @@ import { Link, Navigate} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
+import kamazon from './assets_folder/kamazon.jpg'
 
 function Login() {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ function Login() {
     return (
     <div className='login'>
         <Link to='/'>
-            <img className='login_logo' src='https://m.media-amazon.com/images/G/01/gc/designs/livepreview/amazon_dkblue_noto_email_v2016_us-main._CB468775337_.png'/>
+            <img className="login_logo" src={kamazon} />
         </Link>
 
         <div className='login_container'>
@@ -56,14 +57,12 @@ function Login() {
 
 
                <button type='submit' onClick={signIn} className='login_signIn_btn'>Sign In</button>
-               {/* <button type='submit' className="login_signIn_btn signIn_btn" onClick={signIn}><span>Click</span><span>Add to Cart</span></button> */}
             </form>
 
             <p>By signgin you agree to the terms and policies of Kamazon's use and sales cnoditions</p>
 
         </div>
 
-        {/* <p><span className='span_lineOne'></span> New to Kamazon <span className='span_lineTwo'></span></p> */}
         <div className='divider divider_break'>
             <h5>New to Kamazon?</h5>
         </div>

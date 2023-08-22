@@ -8,7 +8,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getCartTotal } from "./reducer";
 import axios from "./axios";
-// import instance from "./axios";
+
 
 function Payment() {
     const [{ cart, user }, dispatch] = useStateValue();
@@ -22,32 +22,23 @@ function Payment() {
 
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    // const [clientSecret, setClientSecret] = useState(true);
     const [clientSecret, setClientSecret] = useState(null);
 
 
     useEffect(() => {
 
         const getClientSecret = async () => {
-            // const response = await axios({
-            //     method: 'post',
-            //     url: `/payments/create?total=${getCartTotal(cart) * 100}`
-            // });
-            // setClientSecret(response.data.clientSecret) 
             try {
                 const cartTotal = getCartTotal(cart) * 100;
 
                 const response = await axios({
                     method: 'post',
-                    // url: `/payments/create?total=${getCartTotal(cart) * 100}`
                     url: `/payments/create?total=${cartTotal}`
                 });
-                // console.log("Backend response:", response.data)
                 console.log("Backend response:", response)
                 setClientSecret(response.data.clientSecret);
                 console.log(response.data.clientSecret);
             } catch (error) {
-                // console.error("Error getting client secret:", error);
                 console.error("Error getting client secret:", error.response ? error.response.data : error);
             }
         }
@@ -141,14 +132,11 @@ function Payment() {
                             </>
                             )}
                              decimalScale={2}
-                             value={getCartTotal(cart)} //part of homework 
+                             value={getCartTotal(cart)} 
                              displayType={"text"}
                              thousandSeparator={true}
                              prefix={"$"}
                                 />
-                                {/* <button disabled={processing || disabled || succeeded}>
-                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                                </button> */}
                                 <button disabled={processing || disabled || succeeded || !clientSecret}>
     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
 </button>

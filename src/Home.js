@@ -7,7 +7,6 @@ function Home() {
         <>
             <div className="home">
                <div className="home_container">
-               {/* <img alt="Try Amazon Clinic" src="https://m.media-amazon.com/images/I/716cIg8qwvL._SX3000_.jpg" class="amazon-banner" data-a-hires="https://m.media-amazon.com/images/I/716cIg8qwvL._SX3000_.jpg" /> */}
                <img className="amazon_banner_two" src="https://viatea.es/wp-content/uploads/2020/06/amazon-prime-video-spain-contenido.jpg" alt="amazon-banner"/>
                </div>
 
@@ -16,7 +15,6 @@ function Home() {
                         id="123121321"
                         title='The Road to React'
                         price={25.99} 
-                        // image={<img src="https://m.media-amazon.com/images/I/41DA89Z1RIL.jpg" />} 
                         image="https://m.media-amazon.com/images/I/41DA89Z1RIL.jpg"
                         rating={4}
             />
@@ -27,8 +25,6 @@ function Home() {
                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQMjj0Fqjzhwy2_OWEgA8PaPgHwpiH5w51JJGurnaRro0y8vpU-SUyw1-EHdO3IeLVSoc&usqp=CAU"
                         rating={4}
                     />
-                    {/* Product component */}
-                    {/* Product compnent */}
                </div>
 
                <div className="home_row">
@@ -53,9 +49,6 @@ function Home() {
                         image="https://m.media-amazon.com/images/I/71f3JCnVkQL._AC_UF894,1000_QL80_.jpg"
                         rating={5}
                     />
-                    {/* Product component */}
-                    {/* Product compnent */}
-                     {/* Product compnent */}
                </div>
 
                
@@ -67,7 +60,6 @@ function Home() {
                         image="https://static.esrgear.com/wp-content/uploads/2023/01/Galaxy-S23-Ultra-True-View-Bundle-1-1.jpg"
                         rating={4}
                     />
-                    {/* Product component */}
                </div>
             </div>
         </>

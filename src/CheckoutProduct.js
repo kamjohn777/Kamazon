@@ -30,7 +30,6 @@ function CheckoutProduct({ id,image,title,price,rating }) {
                     <p>&#11088;</p>
                 ))}
             </div>
-            {/* <button onClick={removeFromCart}>Remove from Basket</button> */}
             <button className="custom_btn_checkout btn_12_check" onClick={removeFromCart}><span>Click</span><span>Remove from cart</span></button>
             </div>
         </div>

@@ -17,7 +17,6 @@ function Subtotal() {
                     renderText={(value) => (
                         <>
                         <p>
-                            {/* part of homework 1:55 */}
                             Subtotal ({cart.length}): <strong>{value}</strong>
                         </p>
                         <small className='subtotal_gift'>
@@ -25,7 +24,7 @@ function Subtotal() {
                         </>
                     )}
                     decimalScale={2}
-                    value={getCartTotal(cart)} //part of homework 
+                    value={getCartTotal(cart)} 
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}

@@ -5,7 +5,7 @@ import { useStateValue } from "./StateProvider";
 function Product({id, title, image, price, rating }) {
     const [state, dispatch] = useStateValue();
 
-    console.log("This is the baset")
+    console.log("This is the cart")
 
     const addToCart = () => {
         dispatch({
@@ -28,31 +28,15 @@ function Product({id, title, image, price, rating }) {
                     <strong>{price}</strong>
                 </p>
                 <div className="product_rating">
-                    {/* {Array(rating).fill().map((_, i) => (
-                        <i>&#11088;</i>
-                    ))} */}
-{Array(rating).fill().map((_, i) => (
-    <i key={i}>&#11088;</i>
-))
-}
-                    
-                    {/* {Array.from({ length: rating }).map((_, i) => (
-    <p key={i}>&#11088;</p>
-))} */}
-
+                
+                {Array(rating).fill().map((_, i) => (
+                    <i key={i}>&#11088;</i>
+                    ))
+                }
                 </div>
             </div>
-
-            {/* <img src="https://images-na.ssl-images-amazon.com/images/I/51Zympq7Unl._AC_SY400_.jpg"/> */}
-            {/* <img src="https://m.media-amazon.com/images/I/41DA89Z1RIL.jpg" /> */}
             <img src={image} alt="image"/>
-
-            
-            {/* testing buttons */}
-            {/* <button className="product_btns" onClick={addToCart}>Add to Cart</button> */}
             <button className="custom-btn btn-12" onClick={addToCart}><span>Click</span><span>Add to Cart</span></button>
-            {/* <button onClick={addToCart} class="custom-btn btn-5"><span>Read More</span></button> */}
-            {/* <button onClick={addToCart} class="custom-btn btn-7"><span>Read More</span></button> */}
         </div>
     )
 }

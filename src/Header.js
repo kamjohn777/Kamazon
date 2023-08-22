@@ -3,11 +3,7 @@ import '../src/Header.css';
 import { Link, Navigate } from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
-// import Icon from '@mui/material/Icon';
-// import SearchIcon from '@mui/icons-material/Search';
-
-{/* <Icon>star</Icon>; */}
-// example
+import kamazon from './assets_folder/kamazon.jpg'
 
 
 function Header() {
@@ -18,24 +14,16 @@ function Header() {
         if (user) {
             auth.signOut();
         }
-        // if (user) {
-        //     auth.signOut().then(() => {
-        //         Navigate('/');  
-        //     });
-        }
+    }
 
 
     return (
         <div className="header">
             <Link to="/">
-                <img 
-            className="header_logo"
-            src="https://m.media-amazon.com/images/G/01/gc/designs/livepreview/amazon_dkblue_noto_email_v2016_us-main._CB468775337_.png" 
-            />
+            <img className="header_logo" src={kamazon} />
             </Link>
 
             <div className="header_address">
-            {/* <span id="basket-symbol" class="material-symbols-outlined">shopping_basket</span> */}
             <span className="header_span_addressLineOne">Hello</span>
             <div className="sub-span-div-for-lineTwo">
             <span id="id-address-span" class="material-symbols-outlined">location_on</span>
@@ -48,8 +36,6 @@ function Header() {
                 <input 
                 className="header_searchInput"
                 type="text" />
-                {/* <SearchIcon className="header_searchIcon" /> */}
-                {/* <i>star</i> */}
                 <span class="material-symbols-outlined">search</span>
             </div>
 
@@ -71,22 +57,10 @@ function Header() {
                     <span className="header_span_optionsLineTwo">Prime</span>
                 </div>
 
-                {/* <div className="header_option">
-                <span className="header_span_optionsFour">Orders</span>
-                </div>
-
-                <div className="header_option">
-                <span className="header_span_optionsFive">Your</span>
-                </div>
-
-                <div className="header_option">
-                <span className="header_span_optionsSix">Prime</span>
-                </div> */}
             </div>
 
         <Link to="/Checkout">
             <div className="header_optionBasket">
-            {/* <span id="basket-symbol" class="material-symbols-outlined">shopping_basket</span> */}
             <span id="shopping-cart-symbol" class="material-symbols-outlined">shopping_cart</span>
             <span className="header_optionLineTwo header_basketCount">{cart?.length}</span>
             </div>
@@ -95,4 +69,5 @@ function Header() {
     )
 }
 
-export default Header
+
+export default Header;
