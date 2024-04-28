@@ -3,7 +3,8 @@ import '../src/Header.css';
 import { Link, Navigate } from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
-import kamazon from './assets_folder/kamazon.jpg'
+// import kamazon from './assets_folder/kamazon.jpg'
+import kamazon from './assets_folder/Screenshot_2024-04-28_133138-removebg-preview.png'
 
 
 function Header() {
