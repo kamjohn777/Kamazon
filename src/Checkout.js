@@ -25,14 +25,6 @@ const [{ cart, user }, dispatch] = useStateValue();
                             rating={item.rating}
                         />
                     ))}
-
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
-                    {/* {BasketItem} */}
                 </div>
             </div>
             <div className="Checkout_right_container_add">

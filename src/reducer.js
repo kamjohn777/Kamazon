@@ -8,7 +8,6 @@ export const getCartTotal = (cart) => cart?.reduce((acc, cur) => cur.price + acc
 
 const reducer = (state, action) => {
     console.log (action)
-    // check if I need to change the switch to route or something
     switch(action.type) {
         case 'ADD_TO_CART':
         return {

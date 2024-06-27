@@ -31,7 +31,6 @@ function Subtotal() {
                 />
 
                 <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
-                {/* the new es6 version of navigate doesnt need a push method as we can just use the navigate keyword on its own */}
             </div>
         </>
     )
